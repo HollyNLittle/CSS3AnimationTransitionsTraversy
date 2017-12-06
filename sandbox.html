@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Animate.css Sandbox</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/>https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="Sandbox.css" />
+    <style>
+        #section1 {
+            animation-delay: 1s;
+            animation-duration: 1s;
+        }
+
+        #section2 {
+            animation-delay: 2s;
+            animation-duration: 1s;
+            /*animation-iteration-count:2;  will do the animation twice*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="animated slideInDown text-center bg-primary text-white p-5 ">
+            <h1 class="display-4">Animate.css Sandbox</h1>
+        </header>
+        <section id="section1" class="animated slideInLeft bg-faded p-5 my-3">
+        <h1 id="anim-head">SECTION I</h1>
+        <p id="anim-body">Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.</p></section>
+        
+        <section id="section2" class="animated slideInRight bg-faded p-5 my-3">
+        <h1>SECTION II</h1>
+        <p>Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.</p></section>
+        <button id="animatebtn" class="btn btn-primary">Animate</button>
+        <button id="animatebtn2" class="btn btn-primary">Animate</button>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script> 
+        $(function () {
+            $('#animatebtn').click(function(){
+                animate('#anim-head', 'bounce');
+                animate('anim-body', 'rubberBand');
+                return false;
+            }
+            })
+        $(function () {
+            $('#animatebtn2').click(function(){
+                animate('#anim-head', 'slideOutUp');
+                setTimeout(function(){ //Without setTimeOut it would disappear right away
+                 $('header').css('visibility', 'hidden')   
+                }, 1000); //1000 = 1 second
+                return false;
+            }
+            })
+
+        $(function () {
+            //ANIMATE
+            function animate(element, animation) {
+                $(element).addClass('animated' + animation);
+                var wait = setTimeout(function(){
+                    $(element).removeClass('animated' +animation);
+                }, 1000);
+            }
+        })
+    </script>
+</body>
+</html>

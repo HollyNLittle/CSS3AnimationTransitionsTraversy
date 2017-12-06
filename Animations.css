@@ -1,0 +1,57 @@
+﻿body {
+    background-color:#333;
+}
+
+.box {
+    background: white;
+    color:white;
+    font-family:Calibri;
+    font-weight:bolder;
+    width:200px;
+    height:200px;
+    position:relative;
+    vertical-align:middle;
+    animation-name:myanimation;
+    /*Animation will last 4 seconds*/
+    animation-duration:4s;
+    /*Animation will be completed twice*/
+    animation-iteration-count:4;
+    /*Animation starts after half a second*/
+    animation-delay:.5s;
+    /*Animation will reverse*/
+    /*animation-direction:reverse;*/
+    /*will go normal direction, then reverse direction*/
+    animation-direction:alternate;
+    /*control speed, start slowly, etc.,*/
+    animation-timing-function:ease-in;
+    /*will retain the change*/
+   animation-fill-mode:forwards;
+
+}
+
+@keyframes myanimation{
+    /*0 means starts off where the box is now*/
+    0%{background-color:white; left:0px; top:0px;
+       border-radius:0;}
+
+    /*move to the right 300 px (300px AWAY from LEFT border)*/
+    25%{background-color:palevioletred; left:300px; top:0px; 
+        border-radius:50% 0 0 0;}
+        
+    /*move down 300px (300px AWAY from RIGHT border, but stay 300px down)*/
+    50%{background-color:dodgerblue; left:300px; top:300px; 
+        border-radius: 50% 50% 0 0}
+       
+        /*move down 300px (300px AWAY from RIGHT border, but stay 300px down)*/
+    60%{background-color:dodgerblue; left:600px; top:300px; 
+        border-radius: 50% 50% 0 0}
+
+     /*move up 300 px*/
+    75%{background-color:mediumspringgreen; left:0px; top:300px;
+        border-radius: 50% 50% 50% 0}
+
+     /* back where started*/
+    100%{background-color:white;
+        border-radius: 50%}
+
+    }
